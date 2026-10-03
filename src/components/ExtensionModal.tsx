@@ -34,11 +34,11 @@ export function ExtensionModal({ isOpen, onClose }: { isOpen: boolean; onClose: 
                 <p className="text-gray-600 font-medium mb-6">Download the extension files below and install it manually to get started.</p>
                 <a 
                   href="/api/extension.zip" 
-                  download="ContextDock-Extension.zip"
+                  download="ContextDock Chrome Extension.zip"
                   className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg transition-all transform hover:scale-105"
                 >
                   <Download size={20} />
-                  Download Chrome Extension
+                  Download ContextDock Chrome Extension
                 </a>
               </div>
 
@@ -49,7 +49,7 @@ export function ExtensionModal({ isOpen, onClose }: { isOpen: boolean; onClose: 
                   <div className="flex gap-4">
                     <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">1</div>
                     <p className="text-blue-800 font-medium pt-1">
-                      <strong className="text-blue-900">Add to Chrome.</strong> Unzip the downloaded <code className="bg-blue-100 px-1.5 py-0.5 rounded text-blue-700 font-mono text-sm">ContextDock-Extension.zip</code> file. Open Chrome Extensions (<code className="bg-blue-100 px-1.5 py-0.5 rounded text-blue-700 font-mono text-sm select-all">chrome://extensions/</code>), enable <strong>Developer mode</strong>, click <strong>Load unpacked</strong> and select the unzipped folder.
+                      <strong className="text-blue-900">Add to Chrome.</strong> Unzip the downloaded <code className="bg-blue-100 px-1.5 py-0.5 rounded text-blue-700 font-mono text-sm">ContextDock Chrome Extension.zip</code> file. Open Chrome Extensions (<code className="bg-blue-100 px-1.5 py-0.5 rounded text-blue-700 font-mono text-sm select-all">chrome://extensions/</code>), enable <strong>Developer mode</strong>, click <strong>Load unpacked</strong> and select the unzipped folder.
                     </p>
                   </div>
                   

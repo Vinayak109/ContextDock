@@ -1,18 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "ContextDock Auto-Saver",
-  "version": "1.0",
-  "description": "Automatically saves your tabs so you never lose context when you close your browser.",
-  "permissions": [
-    "tabs",
-    "storage",
-    "windows",
-    "alarms"
-  ],
+  "name": "ContextDock",
+  "version": "1.1.0",
+  "description": "Auto-saves your browser sessions. Export and import at contextdock site to restore.",
+  "permissions": ["tabs", "storage", "windows", "alarms", "clipboardWrite"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "ContextDock"
+  },
+  "icons": {
+    "16": "cd_icon16.png",
+    "48": "cd_icon48.png",
+    "128": "cd_icon128.png"
   }
 }

@@ -1,91 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>ContextDock</title>
-  <!-- Tailwind locally -->
-  <link rel="stylesheet" href="tailwind.min.css">
-  <style>
-    body {
-      width: 380px;
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #F8F9FA;
-    }
-    /* Simple scrollbar for a neat look */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #CBD5E1;
-      border-radius: 4px;
-    }
-  </style>
+  <link rel="stylesheet" href="popup.css" />
 </head>
-<body class="text-gray-900 flex flex-col h-screen max-h-[600px]">
-
-  <div class="p-4 bg-white border-b border-gray-100 flex justify-between items-center shrink-0">
-    <div class="flex items-center gap-2">
-      <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white text-xs font-bold shadow-sm">
-        CD
-      </div>
-      <h1 class="text-sm font-bold tracking-tight">ContextDock</h1>
+<body>
+  <div class="header">
+    <div class="logo">
+      <div class="logo-icon"></div>
+      <span>ContextDock</span>
     </div>
-    <button id="export-btn" class="text-xs font-medium text-indigo-600 hover:text-indigo-800 transition-colors">
-      Export JSON
-    </button>
+    <div class="header-actions">
+      <button id="copyJsonBtn" class="btn-primary">Copy JSON</button>
+    </div>
   </div>
 
-  <div class="flex-1 overflow-y-auto p-4 space-y-6">
-    
-    <!-- Current Window Section -->
-    <section>
-      <div class="flex justify-between items-end mb-3">
-        <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Current Window</h2>
-        <span id="current-tab-count" class="text-xs text-gray-500 font-medium"></span>
-      </div>
-      
-      <div id="current-tabs-list" class="bg-white rounded-lg border border-gray-200 divide-y divide-gray-100 max-h-48 overflow-y-auto shadow-sm mb-3">
-        <!-- Rendered via JS -->
-      </div>
-      
-      <!-- Upgrade Form (Hidden by default) -->
-      <div id="save-form" class="hidden bg-white p-3 rounded-lg border border-indigo-100 shadow-sm space-y-2 mb-3">
-        <input type="text" id="workspace-name" placeholder="Workspace Name (e.g. Project Alpha)" class="w-full text-sm p-2 border border-gray-200 rounded focus:outline-none focus:border-indigo-500">
-        <input type="text" id="workspace-purpose" placeholder="Purpose (e.g. Researching competitors)" class="w-full text-sm p-2 border border-gray-200 rounded focus:outline-none focus:border-indigo-500">
-        <div class="flex gap-2 justify-end pt-1">
-          <button id="cancel-save-btn" class="px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-100 rounded">Cancel</button>
-          <button id="confirm-save-btn" class="px-3 py-1.5 text-xs font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded shadow-sm">Save Workspace</button>
-        </div>
-      </div>
-      
-      <button id="start-save-btn" class="w-full py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-sm font-bold rounded-lg transition-colors border border-indigo-100">
-        Save as Named Workspace
-      </button>
-    </section>
+  <div class="recovery-note">
+    To restore a session, click <strong>Copy JSON</strong>, then paste it into the import box on the
+    <strong>ContextDock website</strong>.
+  </div>
 
-    <!-- Auto-Saved Sessions Section -->
-    <section>
-      <div class="flex justify-between items-end mb-3">
-        <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Recent Auto-Saves</h2>
-      </div>
-      <div id="auto-saved-list" class="space-y-2">
-        <!-- Rendered via JS -->
-      </div>
-    </section>
-    
-    <!-- Promoted / Named Workspaces (Quick Glance) -->
-    <section>
-      <div class="flex justify-between items-end mb-3">
-        <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wider">My Workspaces</h2>
-      </div>
-      <div id="named-workspaces-list" class="space-y-2">
-        <!-- Rendered via JS -->
-      </div>
-    </section>
+  <div class="section">
+    <div class="section-title">Current Window</div>
+    <div id="autoSaveStatus" class="auto-save-status"></div>
+    <div id="currentTabs" class="tab-list"></div>
+  </div>
+
+  <div class="section">
+    <input id="wsName" type="text" placeholder="Workspace Name (e.g. Client Pitch)" />
+    <input id="wsPurpose" type="text" placeholder="Purpose (e.g. Researching)" />
+    <button id="saveNamedBtn" class="btn-primary">Save as Named Workspace</button>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Recent Auto-Saves</div>
+    <div id="autoSaves" class="session-list"></div>
   </div>
 
   <script src="popup.js"></script>

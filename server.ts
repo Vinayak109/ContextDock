@@ -21,7 +21,7 @@ async function startServer() {
       
       const zipBuffer = zip.toBuffer();
       
-      res.set("Content-Disposition", "attachment; filename=ContextDock-Extension.zip");
+      res.set("Content-Disposition", 'attachment; filename="ContextDock Chrome Extension.zip"');
       res.set("Content-Type", "application/zip");
       res.send(zipBuffer);
     } catch (error) {
