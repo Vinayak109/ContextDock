@@ -1,0 +1,6 @@
+{
+  "name": "ContextDock",
+  "description": "A smart browser workspace launcher that saves tab contexts and detects dormant tasks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
